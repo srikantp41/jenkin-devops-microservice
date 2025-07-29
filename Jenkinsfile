@@ -11,7 +11,7 @@ pipeline {
 			steps {
 				sh 'mvn --version'
 				sh 'docker version'
-				sh 'jave -version'
+				sh 'java -version'
 				echo "Build"
 				echo "DOCKET_HOME - $dockerHome"
 				echo "PATH - $PATH"
