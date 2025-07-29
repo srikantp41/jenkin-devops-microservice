@@ -7,7 +7,8 @@ pipeline {
 	environment {
 		mavenHome = tool 'myMaven'
 		dockerHome = tool 'myDocker'
-		PATH = "$mavenHome/bin:$dockerHome/bin:$PATH"
+		jdkHome = tool 'jdk-8'
+		PATH = "$mavenHome/bin:$dockerHome/bin:$jdkHome/bin:$PATH"
 	}
 	stages {
 		stage("Checkout") {
