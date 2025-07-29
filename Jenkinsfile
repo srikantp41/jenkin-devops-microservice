@@ -12,7 +12,8 @@ pipeline {
 				sh 'mvn --version'
 				sh 'docker version'
 				echo "Build"
-				echo "Path - $PATH"
+				echo "DOCKET_HOME - $dockerHome"
+				echo "PATH - $PATH"
 				echo "BUILD_NUMBER - $BUILD_NUMBER"
 				echo "BUILD_ID - $BUILD_ID"
 				echo "BUILD_TAG - $BUILD_TAG"
