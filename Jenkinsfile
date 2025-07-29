@@ -1,6 +1,9 @@
 pipeline {
 	agent any
 	//agent { docker { image 'maven:3.6.3' } }
+	tools {
+      jdk 'jdk-8'  // Must match name in Jenkins Global Tool Configuration
+    }
 	environment {
 		mavenHome = tool 'myMaven'
 		dockerHome = tool 'myDocker'
