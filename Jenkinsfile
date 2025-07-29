@@ -17,6 +17,7 @@ pipeline {
 				sh 'docker version'
 				sh 'java -version'
 				echo "Build"
+				echo "JAVA_HOME - $jdkHome"
 				echo "DOCKET_HOME - $dockerHome"
 				echo "PATH - $PATH"
 				echo "BUILD_NUMBER - $BUILD_NUMBER"
