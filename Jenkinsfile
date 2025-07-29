@@ -5,10 +5,12 @@ pipeline {
       jdk 'jdk-8'  // Must match name in Jenkins Global Tool Configuration
     }
 	environment {
-		mavenHome = tool 'myMaven'
-		dockerHome = tool 'myDocker'
-		jdkHome = tool 'jdk-8'
-		PATH = "$mavenHome/bin:$dockerHome/bin:$jdkHome/bin:$PATH"
+		//mavenHome = tool 'myMaven'
+		//dockerHome = tool 'myDocker'
+		mavenHome = "${tool 'myMaven'}"
+		dockerHome = "${tool 'myDocker'}"
+		jdkHome = "${tool 'jdk-8'}"
+		PATH = "${mavenHome}/bin:${dockerHome}/bin:${jdkHome}/bin:$PATH"
 	}
 	stages {
 		stage("Checkout") {
@@ -17,8 +19,8 @@ pipeline {
 				sh 'docker version'
 				sh 'java -version'
 				echo "Build"
-				echo "JAVA_HOME - $jdkHome"
-				echo "DOCKET_HOME - $dockerHome"
+				echo "JAVA_HOME - ${jdkHome}"
+				echo "DOCKET_HOME - ${dockerHome}"
 				echo "PATH - $PATH"
 				echo "BUILD_NUMBER - $BUILD_NUMBER"
 				echo "BUILD_ID - $BUILD_ID"
