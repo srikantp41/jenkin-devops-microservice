@@ -9,7 +9,7 @@ pipeline {
 		//dockerHome = tool 'myDocker'
 		mavenHome = "${tool 'myMaven'}"
 		dockerHome = "${tool 'myDocker'}"
-		//jdkHome = "${tool 'jdk-8'}"
+		JAVA_HOME = "${tool 'jdk-8'}"
 		PATH = "${mavenHome}/bin:${dockerHome}/bin:/bin:$PATH"
 	}
 	stages {
@@ -19,7 +19,9 @@ pipeline {
 				sh 'docker version'
 				sh 'java -version'
 				echo "Build"
-				echo "JAVA_HOME - ${env.JAVA_HOME}"
+				//echo "JAVA_HOME - ${env.JAVA_HOME}"
+				echo "JAVA_HOME in Groovy: ${env.JAVA_HOME}"
+                sh 'echo "JAVA_HOME in shell: $JAVA_HOME"'
 				echo "DOCKET_HOME - ${dockerHome}"
 				echo "PATH - $PATH"
 				echo "BUILD_NUMBER - $BUILD_NUMBER"
